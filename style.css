@@ -1,0 +1,64 @@
+body{
+  margin:0;
+}
+
+h1 {
+  margin:0;
+  text-align:center;
+  text-transform: uppercase;
+  background-color: steelblue;
+  padding:30px;
+  color:white;
+  height:100px;
+  font-size:70px;
+}
+
+h3{
+  font-size:50px;
+  text-align: center;
+}
+
+.container{
+  background-color: #232323;
+  height:180px;
+}
+
+.choices{
+  display:flex;
+  flex-direction:row;
+}
+.rock{
+  background-color:brown;
+  flex:1 1 auto;
+}
+
+.paper{
+  background-color:white;
+  flex:1 1 auto;
+}
+
+.scissors{
+  background-color:silver;
+  flex:1 1 auto;
+}
+
+button{
+  font-size:50px;
+  width:200px;
+  height:80px;
+  background-color:gray;
+   border-radius:5%;
+   outline:none;
+   transition: all 0.4s;
+}
+
+button:hover{
+  background-color: green;
+  cursor:pointer;
+}
+
+hr{
+  margin-top:0;
+  margin-bottom:0;
+  border:2px solid black;
+  }

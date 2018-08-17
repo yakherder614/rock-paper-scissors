@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>
+      Rock
+     </title>
+  </head>
+  <body>
+    <h1> Rock, paper or scissors </h1>
+    <hr>
+    <div class="container">
+        <div class="choices">
+          <div class="rock">
+            <h3> Choose <button id="rock">Rock </button></h3>
+          </div>
+          <div class="paper">
+            <h3> Choose <button id="paper">Paper </button></h3>
+          </div>
+          <div class="scissors">
+            <h3> Choose <button id="scissors">scissors</button></h3>
+          </div>
+        </div><hr>
+    </div>
+    <div class="scores">
+       <h3>Player score : <span id="user-score"> </span></h3>
+       <h3>Computer score : <span id="computer-score"> </span></h3>
+       <h3> No. of rounds in game : 5<span id="total-rounds"> </span> </h3>
+    </div>
+<div class="result">
+      <h3> The winner is : <span id="winner">    </span> </h3>
+</div>
+
+
+    <script>
+  let userScore=0;
+  let computerScore=0;
+  let totalRounds=0;
+  let playerSelection;
+  // var playerSelection;
+  // var computerSelection;
+  var userScoreDisplay=document.getElementById("user-score");
+  var computerScoreDisplay=document.getElementById("computer-score");
+  var resultDisplay=document.querySelector("#winner");
+
+
+  var rock_div = document.getElementById("rock");
+  var paper_div = document.getElementById("paper");
+  var scissors_div = document.getElementById("scissors");
+
+  function win(userChoice,computerChoice){
+  if (userScore===5){
+  resultDisplay.innerHTML= "You!!";}
+  else{userScore++;
+  userScoreDisplay.innerHTML=userScore;
+  computerScoreDisplay.innerHTML=computerScore;}
+  }
+
+  function lose(userChoice,computerChoice){
+  if (computerScore===5){
+    resultDisplay.innerHTML= "Computer!!";}
+  else {computerScore++;
+  userScoreDisplay.innerHTML=userScore;
+  computerScoreDisplay.innerHTML=computerScore;}
+  }
+
+  function draw(userChoice,computerChoice){
+  userScoreDisplay.innerHTML=userScore;
+  computerScoreDisplay.innerHTML=computerScore;
+  }
+
+
+
+
+
+function game(playerSelection){
+  const computerSelection=computerChoice();
+  switch(playerSelection + computerSelection){
+     case "rs":
+     case "pr":
+     case "sp":
+        win(playerSelection,computerSelection);
+        break;
+     case "rp":
+     case "ps":
+     case "sr":
+        lose(playerSelection,computerSelection);
+        break;
+     case "rr":
+     case "pp":
+     case "ss":
+       draw(playerSelection,computerSelection);
+        break;
+
+                                    }
+}
+
+
+function user(playerSelection){
+  rock_div.addEventListener("click", function(){
+    game("r");
+  });
+  paper_div.addEventListener("click", function(){
+    game("p");
+  });
+  scissors_div.addEventListener("click", function(){
+    game("s");
+  });
+}
+
+user();
+
+function computerChoice() {
+      let x= Math.floor(Math.random() * 3);
+      if (x===0){
+        return "r";
+      }
+      else if (x===1){
+        return "p";
+      }
+      else {
+        return "s";
+      }
+    }
+
+//   function round(playerSelection){
+//        computerSelection=computerChoice();
+//        playerSelection=user();
+//        // console.log(playerSelection);
+//        // console.log(computerSelection);
+// }
+//       //  if (playerSelection===computerSelection){alert("This round is a tie");}
+//       //  else if (playerSelection==="rock") { if (computerSelection==="paper"){alert("Paper defeats rock. Computer wins");}
+//       //                             else if(computerSelection==="scissors"){alert("Rock defeats scissors. Player wins");}
+//       //                             }
+      //   else if (playerSelection==="paper") { if (computerSelection==="rock"){alert("Paper defeats rock. Player wins");}
+      //                               else if (computerSelection==="scissors"){alert("Scissors defeats paper. Computer wins");}
+      //                              }
+      // else if (playerSelection==="scissors"){ if (computerSelection==="rock"){alert("Rock defeats scissors. Computer wins");}
+      //                                else if (computerSelection==="paper"){alert("Scissors defeats paper. Player wins");}
+      //                              }
+
+
+ // round();
+
+    </script>
+  </body>
+</html>
